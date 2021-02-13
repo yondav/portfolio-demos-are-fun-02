@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+
+:root {
+    --primary-dark: #252526;
+    --primary-light: #fff;
+    --green: #6a9956;
+    --blue: #9bdcfe;
+    --yellow: #d7ba7d;
+    --orange: #ce9178;
+
+    --ff-primary: 'Montserrat', sans-serif;
+    --ff-secondary: 'Roboto Mono', monospace;
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-weight: 300;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1,
+h2 {
+    font-family: var(--ff-secondary);
+    font-weight: 700;
+    line-height: 1;
+}
+
+header,
+section {
+    padding: 3rem 0;
+}
+
+.container {
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
+}
