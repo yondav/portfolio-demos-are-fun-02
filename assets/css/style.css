@@ -143,5 +143,44 @@ nav a:focus::before {
     border-bottom: .5rem solid var(--blue);
 }
 
+.contact-form {
+    margin: 0 auto;
+    width: 80vw;
+    /* background-color: var(--blue) */
+}
 
+input[type=text], 
+textarea,
+label,
+input[type=submit] {
+    margin: auto 10vw;
+    padding: 2vw;
+    width: 60vw;
+}
+
+input[type=text],
+textarea {
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    box-shadow: ;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--green);
+}
+
+input[type=submit] {
+    margin-top: .6rem;
+    border-radius: 10px;
+    background-color: var(--green);
+    color: var(--primary-light);
+}
+
+input[type=submit]:active {
+    transform: translateY(5px);
+    box-shadow: inset .5rem .5rem .5rem var(--primary-dark);
+}
 
