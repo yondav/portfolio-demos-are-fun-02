@@ -13,6 +13,7 @@
     --ff-secondary: 'Roboto Mono', monospace;
 }
 
+/*** Global in addition to reset.css ***/
 body {
     font-family: var(--ff-primary);
     font-weight: 300;
@@ -29,6 +30,13 @@ h2 {
     margin-bottom: 1rem;
 }
 
+h1 {
+    font-size: 5rem;
+}
+
+h2{
+    font-size: 3.5rem;
+}
 img {
     display: block;
     max-width: 100%;
@@ -39,6 +47,7 @@ section {
     padding: 3rem 0;
 }
 
+/*** class is currently only assigned to .section-title for about - #about .container .section title. Other section titles don't need to be centered now but perhaps in the future. Leaving it here with the global styles for now. ***/
 .text-center {
     text-align: center;
 }
@@ -48,8 +57,14 @@ section {
     width: min(90%, 70.5rem);
 }
 
+section a {
+    text-transform: uppercase;
+    color: currentColor;
+}
+
+/*** header + nav ***/
 header {
-    width: 100%;
+    width: 100vw;
     background-color: var(--primary-dark);
 }
 
@@ -58,7 +73,8 @@ header .logo {
 }
 
 .section-title {
-    margin: 1rem 0;
+    margin: 2rem 0;
+    border-bottom: 1rem solid var(--yellow);
 }
 
 nav {
@@ -74,6 +90,7 @@ nav a {
     color: var(--primary-light);
 }
 
+/*** nav hovers ***/
 .nav-links-a::before {
     position: absolute;
     top: .5rem;
@@ -107,11 +124,24 @@ nav a {
     transition: all .5s ease-in-out;
 }
 
-nav a:hover::before {
+nav a:hover::before,
+nav a:focus::before {
     width: 100%;
 }
 
+/*** little bit of styling in the title section of #about **/
 .section-title p {
-    margin: 0;
+    margin: 0 ;
     font-style: italic;
 }
+
+/*** #projects ***/
+.project-title {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    text-align: right;
+    border-bottom: .5rem solid var(--blue);
+}
+
+
+
