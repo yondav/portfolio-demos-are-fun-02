@@ -2,9 +2,10 @@
 
 :root {
     --primary-dark: #252526;
-    --primary-light: #fff;
+    --primary-light: #f3f3f3;
     --green: #6a9956;
     --blue: #9bdcfe;
+    --alt-blue: #579cd6;
     --yellow: #d7ba7d;
     --orange: #ce9178;
 
@@ -17,10 +18,7 @@ body {
     font-weight: 300;
     font-size: 1.3125rem;
     line-height: 1.6;
-}
-
-.text-center {
-    text-align: center;
+    background-color: var(--primary-light);
 }
 
 h1,
@@ -28,6 +26,12 @@ h2 {
     font-family: var(--ff-secondary);
     font-weight: 700;
     line-height: 1;
+    margin-bottom: 1rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 header,
@@ -35,7 +39,79 @@ section {
     padding: 3rem 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .container {
     margin-inline: auto;
     width: min(90%, 70.5rem);
+}
+
+header {
+    width: 100%;
+    background-color: var(--primary-dark);
+}
+
+header .logo {
+    padding: 2rem;
+}
+
+.section-title {
+    margin: 1rem 0;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav a {
+    margin-top: .8rem;
+    text-decoration: none;
+    color: var(--primary-light);
+}
+
+.nav-links-a::before {
+    position: absolute;
+    top: .5rem;
+    content: "";
+    display: block;
+    height: .3rem;
+    width: 0%;
+    background-color: var(--alt-blue);
+    transition: all .5s ease-in-out;
+}
+
+.nav-links-b::before {
+    position: absolute;
+    top: .5rem;
+    content: "";
+    display: block;
+    height: .3rem;
+    width: 0%;
+    background-color: var(--green);
+    transition: all .5s ease-in-out;
+}
+
+.nav-links-c::before {
+    position: absolute;
+    top: .5rem;
+    content: "";
+    display: block;
+    height: .3rem;
+    width: 0%;
+    background-color: var(--orange);
+    transition: all .5s ease-in-out;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+.section-title p {
+    margin: 0;
+    font-style: italic;
 }
