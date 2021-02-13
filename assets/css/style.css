@@ -37,9 +37,11 @@ h1 {
 h2{
     font-size: 3.5rem;
 }
+
 img {
     display: block;
-    max-width: 100%;
+    margin: 0 auto;
+    width: 85%;
 }
 
 header,
@@ -143,6 +145,7 @@ nav a:focus::before {
     border-bottom: .5rem solid var(--blue);
 }
 
+
 .contact-form {
     margin: 0 auto;
     width: 80vw;
@@ -217,6 +220,5 @@ input[type=submit]:active {
     .secondary p {
         font-size: .9rem;
     }
-    
 }
 
