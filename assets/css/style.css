@@ -146,7 +146,6 @@ nav a:focus::before {
 .contact-form {
     margin: 0 auto;
     width: 80vw;
-    /* background-color: var(--blue) */
 }
 
 input[type=text], 
@@ -164,7 +163,6 @@ textarea {
     border-radius: 10px;
     background-color: var(--primary-dark);
     color: var(--primary-light);
-    box-shadow: ;
 }
 
 input::placeholder,
@@ -182,5 +180,43 @@ input[type=submit] {
 input[type=submit]:active {
     transform: translateY(5px);
     box-shadow: inset .5rem .5rem .5rem var(--primary-dark);
+}
+
+@media (min-width: 768px) {
+    header img,
+    #about img {
+        margin: 0 auto;
+        max-width: 50%;
+    }
+
+    .primary img {
+        margin: 0 auto;
+        max-width: 60%;
+    }
+
+    .secondary-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        border-bottom: .5rem solid var(--blue);
+    }
+
+    .secondary {
+        width: 30%;
+    }
+
+    .secondary .project-title {
+        border-bottom: none;
+
+    }
+    .secondary h2 {
+        font-size: 1.5rem;
+    }
+
+    .secondary p {
+        font-size: .9rem;
+    }
+    
 }
 
