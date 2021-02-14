@@ -99,7 +99,7 @@ nav a {
     top: .5rem;
     content: "";
     display: block;
-    height: .3rem;
+    height: .2rem;
     width: 0%;
     background-color: var(--alt-blue);
     transition: all .5s ease-in-out;
@@ -110,7 +110,7 @@ nav a {
     top: .5rem;
     content: "";
     display: block;
-    height: .3rem;
+    height: .2rem;
     width: 0%;
     background-color: var(--green);
     transition: all .5s ease-in-out;
@@ -121,7 +121,7 @@ nav a {
     top: .5rem;
     content: "";
     display: block;
-    height: .3rem;
+    height: .2rem;
     width: 0%;
     background-color: var(--orange);
     transition: all .5s ease-in-out;
@@ -129,7 +129,7 @@ nav a {
 
 nav a:hover::before,
 nav a:focus::before {
-    width: 100%;
+    width: 15%;
 }
 
 /*** little bit of styling in the title section of #about **/
