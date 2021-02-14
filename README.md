@@ -5,17 +5,12 @@
 Yoni David is an aspiring full stack web developer and visual designer. He's currently enrolled in Columbia University's Full Stack Web Development Bootcamp and is demoing a simple portfolio layout using html and css.
 
 ## Deployed Webpage
-![portfolio demo](./README-assets/scroll.gif)
-
 https://yondav.github.io/portfolio-demos-are-fun-02/
 
-## Page Includes...
-- Semantic html practices for optimal SEO performance
-![lighthouse report](./README-assets/lighthouse-report.png)
-- Various css styling methods including pseudo styling and flex-box
+![portfolio demo](./README-assets/scroll.gif)
 ![portfolio demo](./README-assets/hover.gif)
-- Responsive styling for multiple screen sizes
 ![portfolio demo](./README-assets/responsive-sizing.gif)
+![lighthouse report](./README-assets/lighthouse-report.png)
 
 ## Page Sections
 
