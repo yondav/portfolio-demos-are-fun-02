@@ -192,7 +192,7 @@ footer {
 }
 
 footer .container .footer-logo {
-    margin: 0 auto;
+    padding-top: 1rem;
     max-width: 20%;
 }
 .social-icons {
