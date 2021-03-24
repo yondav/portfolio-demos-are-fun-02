@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
+/* @font-face {
+  font-family: Calibri;
+  src: url(Calibri.ttf);
+} */
+
 :root {
   --primary-dark: #252526;
   --primary-light: #f3f3f3;
@@ -67,12 +72,26 @@ section a {
 
 /*** header + nav ***/
 header {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
   width: 100vw;
   background-color: var(--primary-dark);
 }
 
 header .logo {
+  font-family: Calibri;
+  font-size: 10em;
+  /* color: var(--primary-light); */
   padding: 2rem;
+}
+
+header .logo .yon {
+  color: var(--yellow);
+}
+
+header .logo .dav {
+  color: var(--blue);
 }
 
 .section-title {
