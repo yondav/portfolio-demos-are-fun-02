@@ -8,7 +8,8 @@
 :root {
   --primary-dark: rgb(37, 37, 38);
   --bg-dark: rgba(27, 27, 27, 0.27);
-  --primary-light: rgb(243, 243, 243);
+  --primary-light: rgb(226, 225, 225);
+  --bg-light: rgba(227, 227, 227, 0.27);
   --green: rgb(106, 153, 86);
   --blue: rgb(155, 220, 254);
   --alt-blue: rgb(87, 156, 214);
@@ -20,10 +21,11 @@
 }
 
 .dark {
-  --primary-dark: rgb(243, 243, 243);
+  --primary-dark: rgb(226, 225, 225);
   --bg-dark: rgba(227, 227, 227, 0.27);
   --primary-light: rgb(37, 37, 38);
   --bg-light: rgba(27, 27, 27, 0.27);
+  /* transform: scale(10); */
 }
 
 /*** Global in addition to reset.css ***/
@@ -33,10 +35,11 @@ body {
   align-items: center;
   font-family: var(--ff-primary);
   font-weight: 300;
-  font-size: 1.3125rem;
+  font-size: 1em;
   line-height: 1.6;
   background-color: var(--primary-dark);
   scroll-behavior: smooth;
+  transition: all 0.8s ease-in-out;
 }
 
 h1,
@@ -55,48 +58,57 @@ h2 {
   font-size: 2.8rem;
 }
 
-header,
-section {
+header {
   padding: 3rem 0;
-}
-
-/*** class is currently only assigned to .section-title for about - #about .container .section title. Other section titles don't need to be centered now but perhaps in the future. Leaving it here with the global styles for now. ***/
-.text-center {
-  text-align: center;
-}
-
-.container {
-  margin-inline: auto;
-  width: min(90%, 70.5rem);
-}
-
-section a {
-  text-transform: uppercase;
-  color: currentColor;
 }
 
 /*** header + nav ***/
 header {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   width: 100vw;
-  height: 80vh;
+  padding: 2rem;
   background-color: var(--bg-dark);
   box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
 }
 
+header nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100vw;
+  z-index: 10;
+}
+
+header nav a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+header nav .nav-work {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+header nav .nav-work img {
+  width: 2rem;
+}
+
 header .contrast {
-  width: 90vw;
-  text-align: right;
+  color: var(--primary-light);
+  transition: transform 330ms ease-in-out;
+  cursor: pointer;
 }
 
 header .logo {
-  position: absolute;
   padding: 2rem;
   font-family: Calibri;
-  font-size: 12em;
+  font-size: 5em;
   transition: 0.2s cubic-bezier(0, 1.06, 1, -0.02);
   z-index: 0;
 }
@@ -111,178 +123,122 @@ header .logo .dav {
   transition: 0.8s ease-in-out;
 }
 
-nav {
+header .about-btn {
+  padding: 0.5rem;
+  text-transform: lowercase;
+  color: var(--primary-light);
+  border: 1px solid var(--primary-light);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 330ms ease-in-out;
+}
+
+header .about-btn .fa-chevron-right {
+  margin-left: 0.3rem;
+}
+
+header .about-btn:hover,
+header .about-btn:focus {
+  border-radius: 20px;
+  box-shadow: 0px 5px var(--bg-light);
+}
+
+header .about-btn:active {
+  border-radius: 20px;
+  box-shadow: inset 0px 5px var(--bg-light);
+}
+
+/* pop-up bio + contact */
+/* .show-pop-up {
+  transform: translate(0);
+} */
+
+.pop-up {
+  position: absolute;
   display: flex;
-  justify-content: space-around;
-  width: 30%;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-light);
+  transform: translateY(-100%);
+  z-index: 11;
 }
 
-nav a {
-  margin-top: 0.8rem;
-  text-decoration: none;
-  color: var(--primary-light);
-}
-
-/*** nav hovers ***/
-.nav-links-a::before {
+.pop-up i {
   position: absolute;
-  top: 0.5rem;
-  content: '';
-  display: block;
-  height: 0.2rem;
-  width: 0%;
-  background-color: var(--alt-blue);
-  transition: all 0.5s ease-in-out;
+  left: 1rem;
+  color: var(--orange);
 }
 
-.nav-links-b::before {
-  position: absolute;
-  top: 0.5rem;
-  content: '';
-  display: block;
-  height: 0.2rem;
-  width: 0%;
+.pop-up .headshot {
+  width: 18rem;
   background-color: var(--green);
-  transition: all 0.5s ease-in-out;
+  border: 0.3rem solid var(--primary-dark);
+  border-radius: 50%;
 }
 
-.nav-links-c::before {
-  position: absolute;
-  top: 0.5rem;
-  content: '';
-  display: block;
-  height: 0.2rem;
-  width: 0%;
-  background-color: var(--orange);
-  transition: all 0.5s ease-in-out;
+.slide {
+  animation: slide 0.9s forwards;
+  transition: 330ms ease-in-out;
 }
 
-nav a:hover::before,
-nav a:focus::before {
-  width: 15%;
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.section-title {
-  margin: 2rem 0;
-  border-bottom: 1rem solid var(--yellow);
+.bounce {
+  animation: bounce 0.9s forwards;
+  transition: 330ms ease-in-out;
 }
 
-/*** little bit of styling in the title section of #about **/
-.section-title p {
-  margin: 0;
-  font-style: italic;
+@keyframes bounce {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: translateY(10%);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: translateY(-10%);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: translateY(10%);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
 }
 
-/*** #projects ***/
-.project-title {
-  margin-bottom: 2rem;
-  padding: 2rem;
-  text-align: right;
-  border-bottom: 0.5rem solid var(--blue);
+.hide {
+  display: none;
 }
 
-/*** contact form ***/
-.contact-form {
-  margin: 0 auto;
-  width: 80vw;
-}
-
-input[type='text'],
-textarea,
-label,
-input[type='submit'] {
-  margin: 0auto;
-  padding: 2vw;
-  width: 80vw;
-}
-
-input[type='text'],
-textarea {
-  border: 1px solid var(--orange);
-  border-radius: 10px;
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: var(--green);
-}
-
-input[type='submit'] {
-  margin-top: 0.6rem;
-  border-radius: 10px;
-  background-color: var(--green);
-  color: var(--primary-light);
-}
-
-input[type='submit']:active {
-  transform: translateY(5px);
-  box-shadow: inset 0.5rem 0.5rem 0.5rem var(--primary-dark);
-}
-
-/*** footer ***/
-footer {
-  background-color: var(--primary-dark);
-}
-
-footer .container .footer-logo {
-  padding-top: 1rem;
-  max-width: 20%;
-}
-
-.social-icons {
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 0.5rem 0;
-  width: 20%;
-}
-
-footer .social-icons img {
-  margin-top: 2rem;
-  max-width: 40%;
-}
-
-footer p {
-  padding: 0.5rem 0;
-  text-align: center;
-  font-size: 0.2rem;
-  color: var(--primary-light);
-}
-
-@media (min-width: 768px) {
-  header img,
-  #about img {
-    margin: 0 auto;
-    max-width: 50%;
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 1.2em;
   }
 
-  .primary img {
-    max-width: 60%;
+  header .logo {
+    font-size: 8em;
   }
+}
 
-  .secondary-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    border-bottom: 0.5rem solid var(--blue);
-  }
-
-  .secondary {
-    width: 30%;
-  }
-
-  .secondary .project-title {
-    border-bottom: none;
-  }
-  .secondary h2 {
-    font-size: 1.5rem;
-  }
-
-  .secondary p {
-    font-size: 0.9rem;
+@media only screen and (min-width: 992px) {
+  header .logo {
+    font-size: 12em;
   }
 }
