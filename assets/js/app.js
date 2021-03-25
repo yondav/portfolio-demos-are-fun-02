@@ -7,7 +7,14 @@ const contrast = document.querySelector('.contrast');
 const icons = document.querySelectorAll('.icon');
 const aboutBtn = document.querySelector('.about-btn');
 const btn = document.querySelectorAll('.btn');
+const contactBtn = document.querySelector('.contact-btn');
 const popUp = document.querySelector('.pop-up');
+const contactCard = document.querySelector('.contact-card');
+const formTitle = document.querySelector('.called');
+const formTitleLog = document.querySelector('.console-log');
+const formTitleCalled = document.querySelector('.you-called');
+const close = document.querySelector('.close');
+const back = document.querySelector('.back');
 
 let ready = true;
 
@@ -65,10 +72,37 @@ aboutBtn.addEventListener('click', () => {
     popUp.classList.remove('slide-out');
   }
   popUp.classList.add('slide');
-  let close = document.querySelector('.close');
   close.addEventListener('click', () => {
+    if (contactCard.classList.contains('slide-side')) {
+      contactCard.classList.add('slide-side-out');
+      back.classList.add('hide');
+    }
     popUp.classList.add('slide-out');
   });
+});
+
+// form title animation
+popUp.addEventListener('mousemove', (e) => {
+  let mouseX = e.clientX;
+  let centerX = e.currentTarget.offsetWidth / 2;
+  let currentXoffset = Math.abs(centerX - mouseX);
+
+  formTitle.style.letterSpacing = `${currentXoffset * 0.002}rem`;
+
+  logoColors(formTitleLog, formTitleCalled);
+});
+
+// toggle slide over contact from bio
+contactBtn.addEventListener('click', () => {
+  if (contactCard.classList.contains('slide-side-out')) {
+    contactCard.classList.remove('slide-side-out');
+  }
+  contactCard.classList.add('slide-side');
+  back.addEventListener('click', () => {
+    contactCard.classList.add('slide-side-out');
+    back.classList.add('hide');
+  });
+  back.classList.remove('hide');
 });
 
 // triggers bounce animation on everything in icon class

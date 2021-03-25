@@ -40,7 +40,10 @@
     </header>
 
     <article class="pop-up">
-      <i class="fas fa-times icon close fa-2x"></i>
+      <div class="pop-nav">
+        <i class="fas fa-times icon close fa-2x"></i>
+        <i class="fas fa-chevron-left icon back hide fa-2x"></i>
+      </div>
       <div class="bio-card">
         <img class="headshot" src="./images/yoni.svg" alt="yoni" />
         <br />
@@ -68,6 +71,35 @@
           let's chat
           <i class="fas fa-chevron-right fa-xs bounce hide"></i>
         </div>
+      </div>
+      <div class="contact-card">
+        <div class="called">
+          <span class="console-log"
+            >console.log
+            <br />
+            (<span class="you-called">'you called?'</span>)
+          </span>
+        </div>
+        <form>
+          <div class="name">
+            <label for="input">name:</label>
+            <input type="text" id="name" placeholder="full name" />
+          </div>
+          <div class="email">
+            <label for="email">email:</label>
+            <input type="email" id="email" placeholder="youremail@email.com" />
+          </div>
+          <div class="message">
+            <label for="message">talk to me:</label>
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="what's on your mind?"
+            ></textarea>
+          </div>
+        </form>
       </div>
     </article>
 
