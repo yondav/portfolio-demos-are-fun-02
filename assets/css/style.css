@@ -80,18 +80,21 @@ header {
 }
 
 header .logo {
+  position: relative;
+  padding: 2rem;
   font-family: Calibri;
   font-size: 10em;
-  /* color: var(--primary-light); */
-  padding: 2rem;
+  transition: 0.8s ease-in-out;
 }
 
 header .logo .yon {
   color: var(--yellow);
+  transition: 0.8s ease-in-out;
 }
 
 header .logo .dav {
   color: var(--blue);
+  transition: 0.8s ease-in-out;
 }
 
 .section-title {
