@@ -6,26 +6,37 @@
 } */
 
 :root {
-  --primary-dark: #252526;
-  --primary-light: #f3f3f3;
-  --green: #6a9956;
-  --blue: #9bdcfe;
-  --alt-blue: #579cd6;
-  --yellow: #d7ba7d;
-  --orange: #ce9178;
+  --primary-dark: rgb(37, 37, 38);
+  --bg-dark: rgba(27, 27, 27, 0.27);
+  --primary-light: rgb(243, 243, 243);
+  --green: rgb(106, 153, 86);
+  --blue: rgb(155, 220, 254);
+  --alt-blue: rgb(87, 156, 214);
+  --yellow: rgb(215, 186, 125);
+  --orange: rgb(206, 145, 120);
 
   --ff-primary: 'Montserrat', sans-serif;
   --ff-secondary: 'Roboto Mono', monospace;
 }
 
+.dark {
+  --primary-dark: rgb(243, 243, 243);
+  --bg-dark: rgba(227, 227, 227, 0.27);
+  --primary-light: rgb(37, 37, 38);
+  --bg-light: rgba(27, 27, 27, 0.27);
+}
+
 /*** Global in addition to reset.css ***/
 body {
-  /* padding: auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: var(--ff-primary);
   font-weight: 300;
   font-size: 1.3125rem;
   line-height: 1.6;
-  background-color: var(--primary-light);
+  background-color: var(--primary-dark);
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -42,12 +53,6 @@ h1 {
 
 h2 {
   font-size: 2.8rem;
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  width: 85%;
 }
 
 header,
@@ -73,18 +78,27 @@ section a {
 /*** header + nav ***/
 header {
   display: flex;
-  justify-content: center;
-  /* align-items: center; */
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   width: 100vw;
-  background-color: var(--primary-dark);
+  height: 80vh;
+  background-color: var(--bg-dark);
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
+}
+
+header .contrast {
+  width: 90vw;
+  text-align: right;
 }
 
 header .logo {
-  position: relative;
+  position: absolute;
   padding: 2rem;
   font-family: Calibri;
-  font-size: 10em;
-  transition: 0.8s ease-in-out;
+  font-size: 12em;
+  transition: 0.2s cubic-bezier(0, 1.06, 1, -0.02);
+  z-index: 0;
 }
 
 header .logo .yon {
@@ -97,16 +111,10 @@ header .logo .dav {
   transition: 0.8s ease-in-out;
 }
 
-.section-title {
-  margin: 2rem 0;
-  border-bottom: 1rem solid var(--yellow);
-}
-
 nav {
-  position: absolute;
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 30%;
 }
 
 nav a {
@@ -152,6 +160,11 @@ nav a {
 nav a:hover::before,
 nav a:focus::before {
   width: 15%;
+}
+
+.section-title {
+  margin: 2rem 0;
+  border-bottom: 1rem solid var(--yellow);
 }
 
 /*** little bit of styling in the title section of #about **/

@@ -1,34 +1,32 @@
+const body = document.querySelector('body');
 const header = document.querySelector('header');
 const logo = document.querySelector('.logo');
 const logoYon = document.querySelector('.yon');
 const logoDav = document.querySelector('.dav');
+const contrast = document.querySelector('.contrast');
 
 let ready = true;
 
 header.addEventListener('mousemove', (e) => {
-  let mouseY = e.clientY;
   let mouseX = e.clientX;
-  let transArr = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5];
-  let randomTrans = transArr[Math.floor(Math.random() * transArr.length)];
+  let centerX = e.currentTarget.offsetWidth / 2;
+  let currentXoffset = Math.abs(centerX - mouseX);
+
+  logo.style.letterSpacing = `${currentXoffset * 0.007}rem`;
   logoColors(logoYon, logoDav);
-  if (mouseY && mouseX) {
-    logo.style.transform = `translate(${randomTrans}%, ${randomTrans}%)`;
-    console.log(randomTrans);
-  }
-  // if (mouseY < 288 || mouseX < 725) {
-  //   logo.style.transform = `translate(${randomTrans}%, ${randomTrans}%)`;
-  //   console.log(randomTrans);
-  // }
 });
 
 header.addEventListener('mouseleave', () => {
+  logo.style = '';
   logoYon.style = '';
   logoDav.style = '';
 });
 
-// header.addEventListener('mouseup', () => {
-//   logo.style.background = 'white';
-// });
+contrast.addEventListener('click', (e) => {
+  console.log('you called?');
+  e.preventDefault();
+  body.classList.toggle('dark');
+});
 
 function logoColors(x, y) {
   let hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
