@@ -6,7 +6,7 @@ const logoDav = document.querySelector('.dav');
 const contrast = document.querySelector('.contrast');
 const icons = document.querySelectorAll('.icon');
 const aboutBtn = document.querySelector('.about-btn');
-const chevron = document.querySelector('.fa-chevron-right');
+const btn = document.querySelectorAll('.btn');
 const popUp = document.querySelector('.pop-up');
 
 let ready = true;
@@ -41,25 +41,33 @@ contrast.addEventListener('click', (e) => {
 });
 
 // mouseover for about btn
-aboutBtn.addEventListener('mouseover', () => {
-  aboutBtn.style.color = 'rgb(215, 186, 125)';
-  chevron.style.color = 'rgb(155, 220, 254)';
-  chevron.classList.remove('hide');
-  aboutBtn.style.transform = `scale(1.1)`;
-});
+btn.forEach((button) => {
+  let chevron = document.querySelectorAll('.fa-chevron-right');
+  chevron.forEach((arrow) => {
+    button.addEventListener('mouseover', () => {
+      button.style.color = 'rgb(215, 186, 125)';
+      arrow.style.color = 'rgb(155, 220, 254)';
+      arrow.classList.remove('hide');
+      button.style.transform = `scale(1.1)`;
 
-aboutBtn.addEventListener('mouseleave', () => {
-  chevron.classList.add('hide');
-  aboutBtn.style.transform = '';
-  aboutBtn.style.color = '';
+      button.addEventListener('mouseleave', () => {
+        arrow.classList.add('hide');
+        button.style.transform = '';
+        button.style.color = '';
+      });
+    });
+  });
 });
 
 // toggle pop-up bio/contact
 aboutBtn.addEventListener('click', () => {
+  if (popUp.classList.contains('slide-out')) {
+    popUp.classList.remove('slide-out');
+  }
   popUp.classList.add('slide');
   let close = document.querySelector('.close');
   close.addEventListener('click', () => {
-    popUp.classList.remove('slide');
+    popUp.classList.add('slide-out');
   });
 });
 

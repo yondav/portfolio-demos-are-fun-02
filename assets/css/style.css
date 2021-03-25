@@ -123,7 +123,7 @@ header .logo .dav {
   transition: 0.8s ease-in-out;
 }
 
-header .about-btn {
+.btn {
   padding: 0.5rem;
   text-transform: lowercase;
   color: var(--primary-light);
@@ -133,25 +133,21 @@ header .about-btn {
   transition: 330ms ease-in-out;
 }
 
-header .about-btn .fa-chevron-right {
+.btn .fa-chevron-right {
   margin-left: 0.3rem;
 }
 
-header .about-btn:hover,
-header .about-btn:focus {
+.btn:hover,
+.btn:focus,
+.btn:active {
   border-radius: 20px;
   box-shadow: 0px 5px var(--bg-light);
 }
 
-header .about-btn:active {
+.btn:active {
   border-radius: 20px;
   box-shadow: inset 0px 5px var(--bg-light);
 }
-
-/* pop-up bio + contact */
-/* .show-pop-up {
-  transform: translate(0);
-} */
 
 .pop-up {
   position: absolute;
@@ -161,27 +157,91 @@ header .about-btn:active {
   padding: 1rem;
   width: 100vw;
   height: 100vh;
+  color: var(--primary-dark);
   background-color: var(--primary-light);
   transform: translateY(-100%);
   z-index: 11;
 }
 
-.pop-up i {
+.pop-up .close {
   position: absolute;
   left: 1rem;
   color: var(--orange);
 }
 
+.pop-up .bio-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .pop-up .headshot {
-  width: 18rem;
+  width: 50%;
   background-color: var(--green);
   border: 0.3rem solid var(--primary-dark);
   border-radius: 50%;
 }
 
+.pop-up .bio-card .bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.pop-up a {
+  position: relative;
+  font-style: italic;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.pop-up a:hover,
+.pop-up a:focus,
+.pop-up a:active {
+  color: var(--orange);
+}
+
+.pop-up a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--orange);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.pop-up a:hover::before,
+.pop-up a:focus::before,
+.pop-up a:active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.pop-up .btn {
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.pop-up .btn:hover,
+.pop-up .btn:focus,
+.pop-up .btn:active {
+  box-shadow: 0px 5px var(--bg-dark);
+}
+
+.pop-up .btn:active {
+  box-shadow: inset 0px 5px var(--bg-dark);
+}
+
 .slide {
   animation: slide 0.9s forwards;
-  transition: 330ms ease-in-out;
+  transition: transform 330ms ease-in-out;
 }
 
 @keyframes slide {
@@ -190,6 +250,20 @@ header .about-btn:active {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+.slide-out {
+  animation: slide-out 0.9s forwards;
+  transition: transform 330ms ease-in-out;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100);
   }
 }
 
