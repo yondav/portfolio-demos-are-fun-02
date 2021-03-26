@@ -323,7 +323,7 @@ header .logo .dav {
 .pop-up form div input,
 .pop-up form div textarea {
   padding: 0.5rem;
-  color: var(--primary-light);
+  color: var(--primary-dark);
   background-color: var(--primary-light);
   border: none;
   border-radius: 5px;
