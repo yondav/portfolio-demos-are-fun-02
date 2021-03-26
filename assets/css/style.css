@@ -84,6 +84,7 @@ header nav {
 }
 
 header nav a {
+  position: relative;
   color: var(--primary-light);
   text-decoration: none;
 }
@@ -123,6 +124,7 @@ header .logo .dav {
   transition: 0.8s ease-in-out;
 }
 
+/* all buttons */
 .btn {
   padding: 0.5rem;
   text-transform: lowercase;
@@ -141,6 +143,7 @@ header .logo .dav {
 .btn:focus,
 .btn:active {
   border-radius: 20px;
+  background-color: rgba(27, 27, 27, 0.8);
   box-shadow: 0px 5px var(--bg-light);
 }
 
@@ -149,6 +152,7 @@ header .logo .dav {
   box-shadow: inset 0px 5px var(--bg-light);
 }
 
+/* pop-up page triggered by about button */
 .pop-up {
   position: absolute;
   display: flex;
@@ -157,8 +161,8 @@ header .logo .dav {
   padding: 1rem;
   width: 100vw;
   height: 100vh;
-  color: var(--primary-dark);
-  background-color: var(--primary-light);
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
   transform: translateY(-100%);
   overflow-y: scroll;
   z-index: 11;
@@ -168,9 +172,7 @@ header .logo .dav {
   position: absolute;
   left: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 8vw;
   z-index: 10;
 }
 
@@ -180,6 +182,11 @@ header .logo .dav {
 
 .pop-up .back {
   color: var(--alt-blue);
+}
+
+.pop-up .close,
+.pop-up .back {
+  margin: 0 0.3rem;
 }
 
 .pop-up .bio-card {
@@ -192,7 +199,7 @@ header .logo .dav {
 .pop-up .headshot {
   width: 50%;
   background-color: var(--green);
-  border: 0.3rem solid var(--primary-dark);
+  border: 0.3rem solid var(--primary-light);
   border-radius: 50%;
 }
 
@@ -213,11 +220,15 @@ header .logo .dav {
 
 .pop-up a:hover,
 .pop-up a:focus,
-.pop-up a:active {
+.pop-up a:active,
+nav a:hover,
+nav a:focus,
+nav a:active {
   color: var(--orange);
 }
 
-.pop-up a::before {
+.pop-up a::before,
+nav a::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -232,30 +243,33 @@ header .logo .dav {
 
 .pop-up a:hover::before,
 .pop-up a:focus::before,
-.pop-up a:active::before {
+.pop-up a:active::before,
+nav a:hover::before,
+nav a:focus::before,
+nav a:active::before {
   visibility: visible;
   transform: scaleX(1);
 }
 
 .pop-up .btn {
-  color: var(--primary-dark);
-  border-color: var(--primary-dark);
+  color: var(--primary-light);
+  border-color: var(--primary-light);
 }
 
 .pop-up .btn:hover,
 .pop-up .btn:focus,
 .pop-up .btn:active {
-  box-shadow: 0px 5px var(--bg-dark);
+  box-shadow: 0px 5px var(--bg-light);
 }
 
 .pop-up .btn:active {
-  box-shadow: inset 0px 5px var(--bg-dark);
+  box-shadow: inset 0px 5px var(--bg-light);
 }
 
 .pop-up .contact-card {
   position: absolute;
   height: 100vh;
-  background-color: var(--primary-light);
+  background-color: var(--primary-dark);
   transform: translateX(-150%);
 }
 
@@ -289,9 +303,45 @@ header .logo .dav {
 .pop-up form div input,
 .pop-up form div textarea {
   padding: 0.5rem;
-  background-color: white;
+  color: var(--primary-light);
+  background-color: var(--primary-light);
   border: none;
   border-radius: 5px;
+}
+
+.pop-up form ::placeholder {
+  color: var(--green);
+}
+
+.pop-up form .submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  /* background-color: var(--primary-dark); */
+}
+
+.pop-up form .submit input {
+  color: var(--primary-light);
+  background-color: transparent;
+}
+
+.pop-up form .submit input:hover,
+.pop-up form .submit input:focus,
+.pop-up form .submit input:active {
+  color: var(--yellow);
+}
+
+.pop-up .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pop-up .social-icons img {
+  width: 3rem;
+  margin: 1rem 0.5rem;
 }
 
 .slide {

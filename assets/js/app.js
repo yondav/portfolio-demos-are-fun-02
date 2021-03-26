@@ -77,6 +77,9 @@ aboutBtn.addEventListener('click', () => {
       contactCard.classList.add('slide-side-out');
       back.classList.add('hide');
     }
+    if (contactBtn.classList.contains('hide')) {
+      contactBtn.classList.remove('hide');
+    }
     popUp.classList.add('slide-out');
   });
 });
@@ -98,9 +101,12 @@ contactBtn.addEventListener('click', () => {
     contactCard.classList.remove('slide-side-out');
   }
   contactCard.classList.add('slide-side');
+  contactBtn.classList.add('hide');
+
   back.addEventListener('click', () => {
     contactCard.classList.add('slide-side-out');
     back.classList.add('hide');
+    contactBtn.classList.remove('hide');
   });
   back.classList.remove('hide');
 });
