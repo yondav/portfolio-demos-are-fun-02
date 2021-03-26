@@ -9,6 +9,7 @@ const icons = document.querySelectorAll('.icon');
 const aboutBtn = document.querySelector('.about-btn');
 const btn = document.querySelectorAll('.btn');
 
+const bioCard = document.querySelector('.bio-card');
 const contactBtn = document.querySelector('.contact-btn');
 const popUp = document.querySelector('.pop-up');
 const contactCard = document.querySelector('.contact-card');
@@ -77,7 +78,13 @@ aboutBtn.addEventListener('click', () => {
   if (popUp.classList.contains('slide-out')) {
     popUp.classList.remove('slide-out');
   }
+  if (bioCard.classList.contains('fade-out')) {
+    bioCard.classList.remove('fade-out');
+  }
+
   popUp.classList.add('slide');
+  bioCard.classList.add('fade-in');
+
   close.addEventListener('click', () => {
     if (contactCard.classList.contains('slide-side')) {
       contactCard.classList.add('slide-side-out');
@@ -86,7 +93,10 @@ aboutBtn.addEventListener('click', () => {
     if (contactBtn.classList.contains('hide')) {
       contactBtn.classList.remove('hide');
     }
+
     popUp.classList.add('slide-out');
+    bioCard.classList.remove('fade-in');
+    bioCard.classList.add('fade-out');
   });
 });
 
@@ -108,13 +118,17 @@ contactBtn.addEventListener('click', () => {
   }
   contactCard.classList.add('slide-side');
   contactBtn.classList.add('hide');
+  bioCard.classList.remove('fade-in');
+  bioCard.classList.add('fade-out');
+  back.classList.remove('hide');
 
   back.addEventListener('click', () => {
     contactCard.classList.add('slide-side-out');
     back.classList.add('hide');
     contactBtn.classList.remove('hide');
+    bioCard.classList.remove('fade-out');
+    bioCard.classList.add('fade-in');
   });
-  back.classList.remove('hide');
 });
 
 // triggers bounce animation on everything in icon class

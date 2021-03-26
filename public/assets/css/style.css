@@ -30,31 +30,19 @@ body {
   align-items: center;
   font-family: var(--ff-primary);
   font-weight: 300;
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 0.9em;
+  line-height: 1.4;
   background-color: var(--primary-dark);
   scroll-behavior: smooth;
   transition: all 0.8s ease-in-out;
 }
 
-h1,
-h2 {
+h1 {
   font-family: var(--ff-secondary);
+  font-size: 2.3em;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 1rem;
-}
-
-h1 {
-  font-size: 3.3rem;
-}
-
-h2 {
-  font-size: 2.8rem;
-}
-
-header {
-  padding: 3rem 0;
+  margin-bottom: 0.5rem;
 }
 
 /*** header + nav ***/
@@ -80,15 +68,44 @@ header nav {
 
 header nav a {
   position: relative;
+  margin-left: 1rem;
   color: var(--primary-light);
   text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active,
+.pop-up .bio-card a:hover,
+.pop-up .bio-card a:focus,
+.pop-up .bio-card a:active {
+  color: var(--orange);
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--orange);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover::before,
+nav a:focus::before,
+nav a:active::before {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
 header nav .nav-work {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
 }
 
 header nav .nav-work img {
@@ -149,9 +166,10 @@ header .logo .dav {
 
 /* pop-up page triggered by about button */
 .pop-up {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 1rem;
   width: 100vw;
@@ -164,7 +182,8 @@ header .logo .dav {
 }
 
 .pop-up .pop-nav {
-  position: absolute;
+  position: fixed;
+  top: 1rem;
   left: 1rem;
   display: flex;
   align-items: center;
@@ -173,10 +192,12 @@ header .logo .dav {
 
 .pop-up .close {
   color: var(--orange);
+  cursor: pointer;
 }
 
 .pop-up .back {
   color: var(--alt-blue);
+  cursor: pointer;
 }
 
 .pop-up .close,
@@ -184,18 +205,42 @@ header .logo .dav {
   margin: 0 0.3rem;
 }
 
-.pop-up .bio-card {
+.pop-up .bio-card,
+.pop-up .contact-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  width: 95vw;
+  height: 100vh;
+}
+
+.pop-up .bio-card {
+  opacity: 0%;
+  transition: all 0.8s ease-in-out;
+  transition-delay: 1.5s;
+  overflow: scroll;
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
 }
 
 .pop-up .headshot {
   width: 50%;
+  margin-top: 4rem;
   background-color: var(--green);
   border: 0.3rem solid var(--primary-light);
   border-radius: 50%;
+}
+
+.pop-up .underline {
+  width: 43vw;
+  height: 0.3rem;
+  background-color: var(--orange);
+}
+
+.pop-up h4 {
+  font-size: 0.95em;
+  font-style: italic;
+  text-align: center;
 }
 
 .pop-up .bio-card .bio {
@@ -204,46 +249,13 @@ header .logo .dav {
   justify-content: space-around;
   align-items: center;
   width: 80%;
+  margin-bottom: 2rem;
 }
 
-.pop-up a {
-  position: relative;
+.pop-up .bio-card a {
   font-style: italic;
   color: currentColor;
   text-decoration: none;
-}
-
-.pop-up a:hover,
-.pop-up a:focus,
-.pop-up a:active,
-nav a:hover,
-nav a:focus,
-nav a:active {
-  color: var(--orange);
-}
-
-.pop-up a::before,
-nav a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--orange);
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out;
-}
-
-.pop-up a:hover::before,
-.pop-up a:focus::before,
-.pop-up a:active::before,
-nav a:hover::before,
-nav a:focus::before,
-nav a:active::before {
-  visibility: visible;
-  transform: scaleX(1);
 }
 
 .pop-up .btn {
@@ -263,21 +275,34 @@ nav a:active::before {
 
 .pop-up .contact-card {
   position: absolute;
-  height: 100vh;
-  background-color: var(--primary-dark);
   transform: translateX(-150%);
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
 }
 
-.pop-up .lets-chat {
+.pop-up .contact-card .contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pop-up .contact-card .lets-chat {
   width: 100%;
-  padding: 2rem;
+  margin-bottom: 0.5rem;
+  padding: 2rem 2rem 0;
   text-align: center;
   white-space: nowrap;
   font-family: Calibri;
-  font-size: 2.5em;
+  font-size: 5em;
   transition: 0.2s cubic-bezier(0, 1.06, 1, -0.02);
   overflow: hidden;
   z-index: 0;
+}
+
+.pop-up .contact-card p {
+  width: 73%;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 2rem 0;
+  text-align: center;
 }
 
 .pop-up form {
@@ -285,14 +310,14 @@ nav a:active::before {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 90vw;
-  height: 100%;
+  width: 90%;
+  height: 50%;
 }
 
 .pop-up form div {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 85%;
 }
 
 .pop-up form div input,
@@ -314,7 +339,7 @@ nav a:active::before {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  /* background-color: var(--primary-dark); */
+  margin: 1rem 0 1.5rem;
 }
 
 .pop-up form .submit input {
@@ -336,7 +361,7 @@ nav a:active::before {
 }
 
 .pop-up .social-icons img {
-  width: 3rem;
+  width: 2.5rem;
   margin: 1rem 0.5rem;
 }
 
@@ -426,22 +451,72 @@ nav a:active::before {
   }
 }
 
+.fade-in {
+  animation: fade-in 0.9s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.9s forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
 .hide {
   display: none;
 }
 
-@media only screen and (min-width: 768px) {
-  body {
+@media only screen and (min-width: 600px) {
+  header nav .nav-work {
+    width: 30%;
     font-size: 1.2em;
   }
 
   header .logo {
-    font-size: 8em;
+    font-size: 7em;
+  }
+
+  .pop-up .bio-card,
+  .pop-up .contact-card {
+    width: 75vw;
+  }
+
+  .pop-up .contact-card .lets-chat {
+    font-size: 7em;
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 900px) {
+  header nav .nav-work {
+    width: 20%;
+    font-size: 1.4em;
+  }
+
   header .logo {
     font-size: 12em;
+  }
+
+  .pop-up .bio-card,
+  .pop-up .contact-card {
+    width: 50vw;
+  }
+
+  .pop-up .contact-card .lets-chat {
+    font-size: 6em;
   }
 }
