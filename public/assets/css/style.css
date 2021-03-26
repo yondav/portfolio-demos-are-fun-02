@@ -32,6 +32,7 @@ body {
   font-weight: 300;
   font-size: 0.9em;
   line-height: 1.4;
+  color: var(--primary-light);
   background-color: var(--primary-dark);
   scroll-behavior: smooth;
   transition: all 0.8s ease-in-out;
