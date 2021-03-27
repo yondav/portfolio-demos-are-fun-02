@@ -25,6 +25,14 @@ let email = document.getElementById('email');
 let subject = document.getElementById('subject');
 let message = document.getElementById('message');
 
+const appCard = document.querySelectorAll('.app-card');
+const appTitle = document.querySelectorAll('.app-title');
+const descCard = document.querySelectorAll('.desc-card');
+const otherSide = document.querySelector('.other-side');
+const otherThumb = document.querySelector('.ostn');
+const chopsThumb = document.querySelector('.cctn');
+const weaThumb = document.querySelector('.watn');
+
 // event listeners for header
 // logo animation
 header.addEventListener('mousemove', (e) => {
@@ -167,6 +175,67 @@ form.addEventListener('submit', (e) => {
     }
   };
   xhr.send(JSON.stringify(formData));
+});
+
+appCard.forEach((app) => {
+  app.addEventListener('mouseover', (e) => {
+    e.target.style.transform = 'scale(1.2)';
+    e.target.style.borderRadius = '10px';
+    e.target.style.boxShadow = `rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px`;
+    e.target.style.backgroundSize = 'cover';
+
+    descCard.forEach((card) => {
+      card.classList.remove('fade-out');
+      card.classList.add('fade-in');
+    });
+
+    appTitle.forEach((title) => {
+      title.classList.remove('fade-out');
+      title.classList.add('fade-in');
+    });
+
+    if (e.target === otherThumb) {
+      otherThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/other-side.gif)`;
+      otherThumb.style.width = '26rem';
+    }
+    if (e.target === chopsThumb) {
+      chopsThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/coding-chops.gif)`;
+      chopsThumb.style.width = '26rem';
+    }
+    if (e.target === weaThumb) {
+      weaThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/weather.gif)`;
+      weaThumb.style.width = '26rem';
+    }
+
+    app.addEventListener('mouseleave', () => {
+      e.target.style.transform = '';
+      e.target.style.borderRadius = '';
+      e.target.style.boxShadow = '';
+
+      descCard.forEach((card) => {
+        card.classList.add('fade-out');
+        card.classList.remove('fade-in');
+      });
+
+      appTitle.forEach((title) => {
+        title.classList.add('fade-out');
+        title.classList.remove('fade-in');
+      });
+
+      if (e.target === otherThumb) {
+        otherThumb.style.backgroundImage = ` url(./images/earth-globe-img.png)`;
+        otherThumb.style.width = '';
+      }
+      if (e.target === chopsThumb) {
+        chopsThumb.style.backgroundImage = ` url(./images/coding-chops.svg)`;
+        chopsThumb.style.width = '';
+      }
+      if (e.target === weaThumb) {
+        weaThumb.style.backgroundImage = ` url(./images/weather.svg)`;
+        weaThumb.style.width = '';
+      }
+    });
+  });
 });
 // functions
 
