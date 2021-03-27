@@ -1,6 +1,11 @@
 const body = document.querySelector('body');
 
 const header = document.querySelector('header');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelector('.nav-work');
+const navLogo = document.querySelector('.nav-logo');
+const scrollLinks = document.querySelectorAll('.scroll-link');
+const navAbout = document.querySelector('.nav-about');
 const logo = document.querySelector('.logo');
 const logoYon = document.querySelector('.yon');
 const logoDav = document.querySelector('.dav');
@@ -32,8 +37,168 @@ const otherSide = document.querySelector('.other-side');
 const otherThumb = document.querySelector('.ostn');
 const chopsThumb = document.querySelector('.cctn');
 const weaThumb = document.querySelector('.watn');
+const workThumb = document.querySelector('.wdtn');
 
-// event listeners for header
+const portThumb = document.querySelector('.ptn');
+const portrait = document.querySelector('.portrait-lg');
+const slideBack = document.querySelector('.back-btn');
+const slideNext = document.querySelector('.next-btn');
+
+const handThumb = document.querySelector('.htn');
+const hand = document.querySelector('.hand-lg');
+const hSlideBack = document.querySelector('.hand-back-btn');
+const hSlideNext = document.querySelector('.hand-next-btn');
+
+let currentItem = 0;
+
+const portraits = [
+  {
+    name: 'banjo',
+    img: './images/portraits/00.png',
+  },
+  {
+    name: 'skaters',
+    img: './images/portraits/01.png',
+  },
+  {
+    name: 'bliss',
+    img: './images/portraits/02.png',
+  },
+  {
+    name: 'dannyBird',
+    img: './images/portraits/03.png',
+  },
+  {
+    name: 'artem',
+    img: './images/portraits/04.png',
+  },
+  {
+    name: 'sammy',
+    img: './images/portraits/05.png',
+  },
+  {
+    name: 'sheik',
+    img: './images/portraits/06.png',
+  },
+  {
+    name: 'yondav',
+    img: './images/portraits/07.png',
+  },
+  {
+    name: 'glo',
+    img: './images/portraits/08.png',
+  },
+  {
+    name: 'mysteryLights',
+    img: './images/portraits/09.png',
+  },
+  {
+    name: 'azad',
+    img: './images/portraits/10.png',
+  },
+  {
+    name: 'casey',
+    img: './images/portraits/11.png',
+  },
+  {
+    name: 'norm',
+    img: './images/portraits/12.png',
+  },
+  {
+    name: 'bigMike',
+    img: './images/portraits/13.png',
+  },
+];
+const hands = [
+  {
+    name: 'thumbsUp',
+    img: './images/vector-art/thumbs-up.png',
+  },
+  {
+    name: 'pinkySwear',
+    img: './images/vector-art/pinky-swear.png',
+  },
+  {
+    name: 'backHand',
+    img: './images/vector-art/hand.png',
+  },
+];
+const photos = [
+  {
+    img: './images/photo-design/00.jpeg',
+  },
+  {
+    img: './images/photo-design/01.jpeg',
+  },
+  {
+    img: './images/photo-design/02.jpeg',
+  },
+  {
+    img: './images/photo-design/03.jpeg',
+  },
+  {
+    img: './images/photo-design/04.jpeg',
+  },
+  {
+    img: './images/photo-design/05.jpeg',
+  },
+  {
+    img: './images/photo-design/06.jpeg',
+  },
+  {
+    img: './images/photo-design/07.jpeg',
+  },
+  {
+    img: './images/photo-design/08.jpeg',
+  },
+  {
+    img: './images/photo-design/09.jpeg',
+  },
+  {
+    img: './images/photo-design/10.jpeg',
+  },
+  {
+    img: './images/photo-design/11.jpeg',
+  },
+  {
+    img: './images/photo-design/12.jpeg',
+  },
+];
+
+// fixed nav
+window.addEventListener('scroll', () => {
+  const scrollHeight = window.pageYOffset;
+  const headHeight = header.getBoundingClientRect().height;
+  if (scrollHeight > headHeight) {
+    nav.classList.add('fixed-nav');
+    navAbout.classList.remove('hide');
+  } else {
+    nav.classList.remove('fixed-nav');
+    navAbout.classList.add('hide');
+  }
+});
+
+// smooth scroll
+scrollLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    const element = document.getElementById(id);
+    const navHeight = nav.getBoundingClientRect().height;
+    const fixedNav = nav.classList.contains('fixed-nav');
+    let position = element.offsetTop - navHeight;
+
+    if (!fixedNav) {
+      position = position - navHeight;
+    }
+
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+  });
+});
+
 // logo animation
 header.addEventListener('mousemove', (e) => {
   let mouseX = e.clientX;
@@ -56,9 +221,9 @@ contrast.addEventListener('click', (e) => {
   console.log('you called?');
   body.classList.toggle('dark');
   if (body.classList.contains('dark')) {
-    contrast.innerHTML = `<i class="fas fa-moon"></i>`;
+    contrast.innerHTML = `<i class="fas fa-moon fa-lg"></i>`;
   } else {
-    contrast.innerHTML = `<i class="fas fa-sun"></i>`;
+    contrast.innerHTML = `<i class="fas fa-sun fa-lg"></i>`;
   }
 });
 
@@ -83,29 +248,11 @@ btn.forEach((button) => {
 
 // toggle pop-up bio/contact
 aboutBtn.addEventListener('click', () => {
-  if (popUp.classList.contains('slide-out')) {
-    popUp.classList.remove('slide-out');
-  }
-  if (bioCard.classList.contains('fade-out')) {
-    bioCard.classList.remove('fade-out');
-  }
+  popUpFunc();
+});
 
-  popUp.classList.add('slide');
-  bioCard.classList.add('fade-in');
-
-  close.addEventListener('click', () => {
-    if (contactCard.classList.contains('slide-side')) {
-      contactCard.classList.add('slide-side-out');
-      back.classList.add('hide');
-    }
-    if (contactBtn.classList.contains('hide')) {
-      contactBtn.classList.remove('hide');
-    }
-
-    popUp.classList.add('slide-out');
-    bioCard.classList.remove('fade-in');
-    bioCard.classList.add('fade-out');
-  });
+navAbout.addEventListener('click', () => {
+  popUpFunc();
 });
 
 // form title animation
@@ -177,12 +324,12 @@ form.addEventListener('submit', (e) => {
   xhr.send(JSON.stringify(formData));
 });
 
+// mouse event for dev thumbnails
 appCard.forEach((app) => {
   app.addEventListener('mouseover', (e) => {
-    e.target.style.transform = 'scale(1.2)';
-    e.target.style.borderRadius = '10px';
-    e.target.style.boxShadow = `rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px`;
-    e.target.style.backgroundSize = 'cover';
+    app.style.transform = 'scale(1.2)';
+    app.style.boxShadow = `rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px`;
+    app.style.backgroundSize = 'cover';
 
     descCard.forEach((card) => {
       card.classList.remove('fade-out');
@@ -196,21 +343,33 @@ appCard.forEach((app) => {
 
     if (e.target === otherThumb) {
       otherThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/other-side.gif)`;
-      otherThumb.style.width = '26rem';
+      otherThumb.style.borderRadius = '0';
     }
     if (e.target === chopsThumb) {
       chopsThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/coding-chops.gif)`;
-      chopsThumb.style.width = '26rem';
+      chopsThumb.style.borderRadius = '0';
     }
     if (e.target === weaThumb) {
       weaThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/weather.gif)`;
-      weaThumb.style.width = '26rem';
+      weaThumb.style.borderRadius = '0';
+    }
+    if (e.target === workThumb) {
+      workThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/work-day.gif)`;
+      workThumb.style.borderRadius = '0';
+    }
+    if (e.target === portThumb) {
+      portThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/portraits/00.png)`;
+      portThumb.style.borderRadius = '0';
+    }
+    if (e.target === handThumb) {
+      handThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/vector-art/thumbs-up.png)`;
+      handThumb.style.borderRadius = '0';
     }
 
     app.addEventListener('mouseleave', () => {
-      e.target.style.transform = '';
-      e.target.style.borderRadius = '';
-      e.target.style.boxShadow = '';
+      app.style.transform = '';
+      app.style.borderRadius = '';
+      app.style.boxShadow = '';
 
       descCard.forEach((card) => {
         card.classList.add('fade-out');
@@ -223,20 +382,111 @@ appCard.forEach((app) => {
       });
 
       if (e.target === otherThumb) {
-        otherThumb.style.backgroundImage = ` url(./images/earth-globe-img.png)`;
-        otherThumb.style.width = '';
+        otherThumb.style.backgroundImage = '';
+        otherThumb.style.borderRadius = '50%';
       }
       if (e.target === chopsThumb) {
-        chopsThumb.style.backgroundImage = ` url(./images/coding-chops.svg)`;
-        chopsThumb.style.width = '';
+        chopsThumb.style.backgroundImage = '';
+        chopsThumb.style.borderRadius = '50%';
       }
       if (e.target === weaThumb) {
-        weaThumb.style.backgroundImage = ` url(./images/weather.svg)`;
-        weaThumb.style.width = '';
+        weaThumb.style.backgroundImage = '';
+        weaThumb.style.borderRadius = '50%';
+      }
+      if (e.target === workThumb) {
+        workThumb.style.backgroundImage = '';
+        workThumb.style.borderRadius = '50%';
+      }
+      if (e.target === portThumb) {
+        portThumb.style.backgroundImage = '';
+        portThumb.style.borderRadius = '50%';
+      }
+      if (e.target === handThumb) {
+        handThumb.style.backgroundImage = '';
+        handThumb.style.borderRadius = '50%';
       }
     });
   });
 });
+
+// portrait slider
+portThumb.addEventListener('click', () => {
+  const slider = document.querySelector('.portrait-card');
+  document.querySelector('.portraits').classList.add('hide');
+  slider.classList.remove('hide');
+
+  if (!slider.classList.contains('slide-side-out')) {
+    slider.classList.add('slide-side');
+  } else {
+    slider.classList.remove('slide-side-out');
+    slider.classList.add('slide-side');
+  }
+});
+
+document.querySelector('.portrait-close').addEventListener('click', () => {
+  const slider = document.querySelector('.portrait-card');
+  slider.classList.add('slide-side-out');
+  slider.classList.add('hide');
+  document.querySelector('.portraits').classList.remove('hide');
+  showNextItem(portraits, currentItem, portrait);
+});
+
+slideBack.addEventListener('click', () => {
+  console.log('click');
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = portraits.length - 1;
+  }
+  showNextItem(portraits, currentItem, portrait);
+});
+
+slideNext.addEventListener('click', () => {
+  currentItem++;
+  if (currentItem > portraits.length - 1) {
+    currentItem = 0;
+  }
+  showNextItem(portraits, currentItem, portrait);
+});
+
+// vector-art (previously hands) gallery
+handThumb.addEventListener('click', () => {
+  const gal = document.querySelector('.hands-card');
+  document.querySelector('.hands').classList.add('hide');
+  gal.classList.remove('hide');
+
+  if (!gal.classList.contains('slide-side-out')) {
+    gal.classList.add('slide-side');
+  } else {
+    gal.classList.remove('slide-side-out');
+    gal.classList.add('slide-side');
+  }
+});
+
+document.querySelector('.hand-close').addEventListener('click', () => {
+  const gal = document.querySelector('.hands-card');
+  gal.classList.add('slide-side-out');
+  gal.classList.add('hide');
+  document.querySelector('.hands').classList.remove('hide');
+  showNextItem(hands, currentItem, hand);
+});
+
+hSlideBack.addEventListener('click', () => {
+  console.log('click');
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = hands.length - 1;
+  }
+  showNextItem(hands, currentItem, hand);
+});
+
+hSlideNext.addEventListener('click', () => {
+  currentItem++;
+  if (currentItem > hands.length - 1) {
+    currentItem = 0;
+  }
+  showNextItem(hands, currentItem, hand);
+});
+
 // functions
 
 let ready = true;
@@ -258,4 +508,37 @@ function logoColors(x, y) {
       ready = true;
     }, 800);
   }
+}
+
+// about/contact toggle
+function popUpFunc() {
+  if (popUp.classList.contains('slide-out')) {
+    popUp.classList.remove('slide-out');
+  }
+  if (bioCard.classList.contains('fade-out')) {
+    bioCard.classList.remove('fade-out');
+  }
+
+  popUp.classList.add('slide');
+  bioCard.classList.add('fade-in');
+
+  close.addEventListener('click', () => {
+    if (contactCard.classList.contains('slide-side')) {
+      contactCard.classList.add('slide-side-out');
+      back.classList.add('hide');
+    }
+    if (contactBtn.classList.contains('hide')) {
+      contactBtn.classList.remove('hide');
+    }
+
+    popUp.classList.add('slide-out');
+    bioCard.classList.remove('fade-in');
+    bioCard.classList.add('fade-out');
+  });
+}
+
+function showNextItem(x, y, z) {
+  const item = x[y];
+  z.src = item.img;
+  console.log(item);
 }

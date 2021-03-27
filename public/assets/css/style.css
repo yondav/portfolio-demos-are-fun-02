@@ -3,6 +3,7 @@
 :root {
   --primary-dark: rgb(37, 37, 38);
   --bg-dark: rgba(27, 27, 27, 0.27);
+  --nav: rgba(226, 225, 225, 0.8);
   --primary-light: rgb(226, 225, 225);
   --bg-light: rgba(227, 227, 227, 0.27);
   --green: rgb(106, 153, 86);
@@ -19,8 +20,13 @@
   --primary-dark: rgb(226, 225, 225);
   --bg-dark: rgba(227, 227, 227, 0.27);
   --primary-light: rgb(37, 37, 38);
+  --nav: rgba(37, 37, 38, 0.8);
   --bg-light: rgba(27, 27, 27, 0.27);
   /* transform: scale(10); */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /*** Global in addition to reset.css ***/
@@ -34,7 +40,6 @@ body {
   line-height: 1.4;
   color: var(--primary-light);
   background-color: var(--primary-dark);
-  scroll-behavior: smooth;
   transition: all 0.8s ease-in-out;
 }
 
@@ -59,32 +64,50 @@ main {
 }
 
 header nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem;
   width: 100vw;
   z-index: 10;
 }
 
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  background-color: var(--nav);
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
+}
+
+.fixed-nav a,
+.fixed-nav p,
+.fixed-nav .contrast {
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+
 header nav a {
+  color: var(--primary-light);
+}
+
+header nav .nav-link {
   position: relative;
   margin-left: 1rem;
-  color: var(--primary-light);
   text-decoration: none;
 }
 
-nav a:hover,
-nav a:focus,
-nav a:active,
+nav .nav-link:hover,
+nav .nav-link:focus,
+nav .nav-link:active,
 .pop-up .bio-card a:hover,
 .pop-up .bio-card a:focus,
 .pop-up .bio-card a:active {
   color: var(--orange);
 }
 
-nav a::before {
+nav .nav-link::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -97,9 +120,9 @@ nav a::before {
   transition: all 0.3s ease-in-out;
 }
 
-nav a:hover::before,
-nav a:focus::before,
-nav a:active::before {
+nav .nav-link:hover::before,
+nav .nav-link:focus::before,
+nav .nav-link:active::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -373,14 +396,15 @@ main {
 }
 
 /* dev */
-main #dev {
+main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-#dev .dev-header {
+.dev-header,
+.design-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -390,36 +414,43 @@ main #dev {
   text-align: center;
 }
 
-#dev .dev-header h1 {
+.dev-header h1,
+.design-header h1 {
   font-size: 3em;
 }
 
-#dev .dev-header .fun {
+.dev-header .fun,
+.design-header .fun {
   font-style: italic;
 }
 
-#dev .app-card {
+.app-card,
+.art-card {
   margin-bottom: 4rem;
+  transition: all 0.4s ease-in-out;
 }
 
-#dev .app-card a {
+.app-card a {
   text-decoration: none;
   color: currentColor;
 }
 
-#dev .thumbnail {
+.thumbnail {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 22rem;
   height: 22rem;
+  margin: 0 auto;
   background-repeat: no-repeat;
   background-size: 22rem;
-  transition: all 0.4s ease-in-out;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
+  cursor: pointer;
 }
 
-#dev .thumbnail span {
+.thumbnail span {
   position: absolute;
   font-family: var(--ff-secondary);
   font-size: 2.5em;
@@ -427,7 +458,7 @@ main #dev {
   opacity: 0%;
 }
 
-#dev .thumbnail .desc-card {
+.thumbnail .desc-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -436,22 +467,20 @@ main #dev {
   margin-bottom: 0;
   padding: 0.5rem;
   background-color: var(--bg-light);
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   opacity: 0%;
   transition: all 2s ease;
 }
 
-#dev .thumbnail h1 {
+.thumbnail h1 {
   width: 12rem;
   padding: 0.3rem;
   text-align: center;
   font-size: 5em;
-  background-color: var(--bg-dark);
+  /* background-color: var(--bg-dark); */
   border-radius: 5px;
 }
 
-#dev .thumbnail h3 {
+.thumbnail h3 {
   font-size: 1.1em;
 }
 
@@ -467,6 +496,76 @@ main #dev {
   background-image: url(../../images/weather.svg);
 }
 
+.work-day .thumbnail {
+  background-image: url(../../images/work-day.svg);
+}
+
+/* design */
+/* #design .thumbnail {
+  margin: 0 2.5rem;
+} */
+
+.portraits .thumbnail {
+  background-image: url(../../images/portraits/00.png);
+}
+
+.hands .thumbnail {
+  background-image: url(../../images/vector-art/thumbs-up.png);
+}
+
+.portrait-card,
+.hands-card {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+  transform: translateX(-100%);
+  z-index: 11;
+}
+
+.portrait-close,
+.hand-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.portrait-slider,
+.hand-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s ease-in-out;
+  transition-delay: 1.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
+}
+
+.portrait-lg {
+  width: 90%;
+  margin: 1.5rem 0;
+  border: 3px solid var(--primary-light);
+  border-radius: 10px;
+}
+
+.back-btn,
+.next-btn,
+.hand-back-btn,
+.hand-next-btn {
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.hand-lg {
+  height: 80%;
+  margin: 1.5rem 0;
+  background-color: var(--primary-light);
+  border-radius: 10px;
+}
+
 .hide {
   display: none;
 }
@@ -475,6 +574,11 @@ main #dev {
   header nav .nav-work {
     width: 30%;
     font-size: 1.2em;
+  }
+
+  header .fixed-nav .nav-work {
+    width: 40%;
+    font-size: 1.4em;
   }
 
   header .logo {
@@ -489,11 +593,29 @@ main #dev {
   .pop-up .contact-card .lets-chat {
     font-size: 7em;
   }
+
+  .apps,
+  .art {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60rem;
+  }
+
+  .portrait-lg {
+    width: 75%;
+  }
 }
 
 @media only screen and (min-width: 900px) {
   header nav .nav-work {
     width: 20%;
+    font-size: 1.4em;
+  }
+
+  header .fixed-nav .nav-work {
+    width: 30%;
     font-size: 1.4em;
   }
 
@@ -508,5 +630,19 @@ main #dev {
 
   .pop-up .contact-card .lets-chat {
     font-size: 6em;
+  }
+
+  .portrait-lg {
+    width: 65%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  header nav .nav-work {
+    width: 20%;
+  }
+
+  .portrait-lg {
+    width: 55%;
   }
 }
