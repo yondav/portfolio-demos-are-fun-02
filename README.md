@@ -16,11 +16,13 @@ https://portfolio-demos-are-fun-02.herokuapp.com/
 
 ![portfolio demo](./public/README-assets/mouse-scroll.gif)
 
-### About
+### Dynamic Single Page Design
+
+![portfolio demo](./public/README-assets/about-contact.gif)
 
 ## Featured Dev
 
----
+## ![portfolio demo](./public/README-assets/gifs.gif)
 
 ### The Other Side
 
@@ -44,7 +46,11 @@ https://portfolio-demos-are-fun-02.herokuapp.com/
 
 ---
 
-### Contact
+### Featured Design
+
+![portfolio demo](./public/README-assets/slider.gif)
+
+### Takeaway
 
 It's been a lot of fun challenging myself to create a dynamic and fun experience on my portfolio page. This being the second phase my portfolio since starting the course made very clear how far my skills and intuition have come. It's certainly not perfect and it is all pretty vanilla but I did learn a lot and I'm excited to have accomplished things I had never tried before. This will be a fun thing to continue revisiting and refactoring over time but it was very exciting to work on this.
 
@@ -76,6 +82,10 @@ It's been a lot of fun challenging myself to create a dynamic and fun experience
 
 ---
 
+## Lighthouse
+
+## ![portfolio demo](./public/README-assets/lighthouse.png)
+
 ## Built With
 
 ### HTML
@@ -89,6 +99,8 @@ It's been a lot of fun challenging myself to create a dynamic and fun experience
 ### <a href= "https://expressjs.com/">Express</a>
 
 ### <a href= "https://nodemailer.com/about/">Nodemailer</a>
+
+### Deployed using <a href= "https://www.heroku.com/">Heroku</a>
 
 ---
 
