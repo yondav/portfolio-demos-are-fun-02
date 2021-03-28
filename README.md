@@ -1,36 +1,95 @@
-# portfolio-demos-are-fun-02
+# Updated Portfolio
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Yoni David is an aspiring full stack web developer and visual designer. He's currently enrolled in Columbia University's Full Stack Web Development Bootcamp and is demoing a simple portfolio layout using html and css.
+For this assignment, I decided to challenge myself and try a few things I had never done before. I tried to create a more fun and dynamic UI with JavaScript and CSS. I also worked with node for the first time to set up a server and accept email submissions from the contact form.
 
 ## Deployed Webpage
-https://yondav.github.io/portfolio-demos-are-fun-02/
 
-![portfolio demo](./README-assets/scroll.gif)
-![portfolio demo](./README-assets/hover.gif)
-![portfolio demo](./README-assets/responsive-sizing.gif)
-![lighthouse report](./README-assets/lighthouse-report.png)
+https://portfolio-demos-are-fun-02.herokuapp.com/
 
-## Page Sections
+### Responsive Layout
+
+![portfolio demo](./public/README-assets/responsive.gif)
+
+### Dynamic Scrolling, Sticky-Nav, Mouse Events
+
+![portfolio demo](./public/README-assets/mouse-scroll.gif)
 
 ### About
-Includes a self portrait and a brief bio.
 
-### Projects
-Includes a layout designed for various screen sizes using flex-box. The projects are mostly placeholders for now. The primary link to https://www.yupny.com/apply is a live leasing application I built and designed for Yup Realty using Jot Form and a bit of additional css.
+## Featured Dev
+
+---
+
+### The Other Side
+
+- <a href= "https://ssharmin0029.github.io/project1/index.html">deployed</a>
+- <a href= "https://github.com/yondav/project1">repo</a>
+
+### Coding Chops The Game
+
+- <a href= "https://yondav.github.io/05-coding-chops-the-game/">deployed</a>
+- <a href= "https://github.com/yondav/05-coding-chops-the-game">repo</a>
+
+### Weather App
+
+- <a href= "https://yondav.github.io/07-weather-app/">deployed</a>
+- <a href= "https://github.com/yondav/07-weather-app">repo</a>
+
+### Work Day
+
+- <a href= "https://yondav.github.io/06-day-planner/">deployed</a>
+- <a href= "https://github.com/yondav/06-day-planner">repo</a>
+
+---
 
 ### Contact
-Includes an email form built with html and styled with css. 
 
-## Please follow these steps to navigate the repository
-- Ensure you are on the main branch
-- Open index.html to access the html file
-- Nested in the assets folder, you will find two folders titled css and images
-- You can access the css stylesheets: reset.css, style.css by opening the css folder and selecting the desired file
-- All images used throughout the webpage are in the images folder and can be accessed there
-- The gifs and screenshot provided in this README file are located in the folder titled README-assets
+It's been a lot of fun challenging myself to create a dynamic and fun experience on my portfolio page. This being the second phase my portfolio since starting the course made very clear how far my skills and intuition have come. It's certainly not perfect and it is all pretty vanilla but I did learn a lot and I'm excited to have accomplished things I had never tried before. This will be a fun thing to continue revisiting and refactoring over time but it was very exciting to work on this.
 
-The assignment was to build a simple portfolio using html and css. I had spent a lot of time this week playing with some ideas for a more complex website using a bit of javascript. I ultimately scrapped that site for the sake of submitting something I was more confident in my ability to complete but I did learn a lot while working on this project. This was a great exercise in thinking about html structure and understanding the ways that different css methods work and how they respond to one another. 
+---
+
+## Repo
+
+```
+### Root Directory
+
+- package.json
+- package-lock.json
+- server.js
+- .gitignore
+- public
+  - assets
+    - css
+      - animations.css
+      - reset.css
+      - style.css
+    - js
+     - app.js
+    - images
+      - ** all imagery **
+    - README-assets
+      - readme imagery and gifs
+
+```
+
+---
+
+## Built With
+
+### HTML
+
+### CSS
+
+### JavaScript
+
+### <a href= "https://nodejs.org/en/">Node.JS</a>
+
+### <a href= "https://expressjs.com/">Express</a>
+
+### <a href= "https://nodemailer.com/about/">Nodemailer</a>
+
+---
 
 Copyright (c) [2021] [Jonathan David]
