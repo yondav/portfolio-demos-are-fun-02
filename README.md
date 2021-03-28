@@ -6,7 +6,7 @@ For this assignment, I decided to challenge myself and try a few things I had ne
 
 ## Deployed Webpage
 
-https://portfolio-demos-are-fun-02.herokuapp.com/
+http://www.yondav.us/
 
 ### Responsive Layout
 
