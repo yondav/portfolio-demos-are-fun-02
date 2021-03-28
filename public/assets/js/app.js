@@ -189,6 +189,14 @@ const presPages = [
   },
 ];
 
+const date = new Date();
+const year = date.getFullYear();
+
+// for copyright date
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.copy').innerHTML = `&#169 ${year} Yoni David`;
+});
+
 // fixed nav
 window.addEventListener('scroll', () => {
   const scrollHeight = window.pageYOffset;
