@@ -565,9 +565,13 @@ main {
   box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
 }
 
-.portrait-lg {
+.portrait-lg,
+.hand-lg,
+.photo-lg,
+.pres-lg {
   width: 90%;
   margin: 1.5rem 0;
+  background-color: var(--primary-light);
   border: 3px solid var(--primary-light);
   border-radius: 10px;
 }
@@ -582,15 +586,6 @@ main {
 .pres-next-btn {
   z-index: 1000;
   cursor: pointer;
-}
-
-.hand-lg,
-.photo-lg,
-.pres-lg {
-  height: 80%;
-  margin: 1.5rem 0;
-  background-color: var(--primary-light);
-  border-radius: 10px;
 }
 
 footer {
@@ -629,15 +624,6 @@ footer a .icon {
   width: min-content;
   margin: 0;
 }
-
-/* .resume {
-  margin: 0 0 0.5rem;
-  font-size: 1.3rem;
-} */
-
-/* .resume:active {
-  color: currentColor;
-} */
 
 .footer-social-icons {
   position: fixed;
@@ -692,7 +678,10 @@ footer a .icon {
     width: 60rem;
   }
 
-  .portrait-lg {
+  .portrait-lg,
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
     width: 75%;
   }
 
@@ -701,15 +690,6 @@ footer a .icon {
   .photos-card,
   .pres-card {
     position: absolute;
-  }
-
-  .hand-lg,
-  .photo-lg,
-  .pres-lg {
-    height: 65%;
-    margin: 1.5rem 0;
-    background-color: var(--primary-light);
-    border-radius: 10px;
   }
 }
 
@@ -737,17 +717,11 @@ footer a .icon {
     font-size: 6em;
   }
 
-  .portrait-lg {
-    width: 65%;
-  }
-
+  .portrait-lg,
   .hand-lg,
   .photo-lg,
   .pres-lg {
-    height: 55%;
-    margin: 1.5rem 0;
-    background-color: var(--primary-light);
-    border-radius: 10px;
+    width: 65%;
   }
 }
 
@@ -756,16 +730,10 @@ footer a .icon {
     width: 20%;
   }
 
-  .portrait-lg {
-    width: 45%;
-  }
-
+  .portrait-lg,
   .hand-lg,
   .photo-lg,
   .pres-lg {
-    height: 50%;
-    margin: 1.5rem 0;
-    background-color: var(--primary-light);
-    border-radius: 10px;
+    width: 45%;
   }
 }
