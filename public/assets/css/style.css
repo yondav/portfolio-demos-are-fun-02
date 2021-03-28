@@ -88,26 +88,26 @@ header nav {
   cursor: pointer;
 }
 
-header nav a {
+.nav-link {
   color: var(--primary-light);
 }
 
-header nav .nav-link {
+.nav-link {
   position: relative;
   margin-left: 1rem;
   text-decoration: none;
 }
 
-nav .nav-link:hover,
-nav .nav-link:focus,
-nav .nav-link:active,
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active,
 .pop-up .bio-card a:hover,
 .pop-up .bio-card a:focus,
 .pop-up .bio-card a:active {
   color: var(--orange);
 }
 
-nav .nav-link::before {
+.nav-link::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -120,9 +120,9 @@ nav .nav-link::before {
   transition: all 0.3s ease-in-out;
 }
 
-nav .nav-link:hover::before,
-nav .nav-link:focus::before,
-nav .nav-link:active::before {
+.nav-link:hover::before,
+.nav-link:focus::before,
+.nav-link:active::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -143,7 +143,8 @@ header .contrast {
   cursor: pointer;
 }
 
-header .logo {
+header .logo,
+footer .footer-logo {
   padding: 2rem;
   font-family: Calibri;
   font-size: 5em;
@@ -151,12 +152,14 @@ header .logo {
   z-index: 0;
 }
 
-header .logo .yon {
+header .logo .yon,
+footer .footer-logo .footer-yon {
   color: var(--yellow);
   transition: 0.8s ease-in-out;
 }
 
-header .logo .dav {
+header .logo .dav,
+footer .footer-logo .footer-dav {
   color: var(--blue);
   transition: 0.8s ease-in-out;
 }
@@ -513,8 +516,19 @@ main {
   background-image: url(../../images/vector-art/thumbs-up.png);
 }
 
+.pres .thumbnail {
+  background-image: url(../../images/presentation-design/00.jpg);
+}
+
+.photos .thumbnail {
+  background-size: cover;
+  background-image: url(../../images/photo-design/00.jpeg);
+}
+
 .portrait-card,
-.hands-card {
+.hands-card,
+.photos-card,
+.pres-card {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -526,7 +540,9 @@ main {
 }
 
 .portrait-close,
-.hand-close {
+.hand-close,
+.photo-close,
+.pres-close {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -535,7 +551,9 @@ main {
 }
 
 .portrait-slider,
-.hand-slider {
+.hand-slider,
+.photo-slider,
+.pres-slider {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -554,16 +572,65 @@ main {
 .back-btn,
 .next-btn,
 .hand-back-btn,
-.hand-next-btn {
+.hand-next-btn,
+.photo-back-btn,
+.photo-next-btn,
+.pres-back-btn,
+.pres-next-btn {
   z-index: 1000;
   cursor: pointer;
 }
 
-.hand-lg {
+.hand-lg,
+.photo-lg,
+.pres-lg {
   height: 80%;
   margin: 1.5rem 0;
   background-color: var(--primary-light);
   border-radius: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+footer .scroll-link {
+  text-decoration: none;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+}
+
+footer a .icon {
+  color: var(--yellow) !important;
+}
+
+.resume {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.resume:active {
+  color: currentColor;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-social-icons img {
+  width: 2.5rem;
 }
 
 .hide {
@@ -606,6 +673,22 @@ main {
   .portrait-lg {
     width: 75%;
   }
+
+  .portrait-card,
+  .hands-card,
+  .photos-card,
+  .pres-card {
+    position: absolute;
+  }
+
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
+    height: 65%;
+    margin: 1.5rem 0;
+    background-color: var(--primary-light);
+    border-radius: 10px;
+  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -635,6 +718,15 @@ main {
   .portrait-lg {
     width: 65%;
   }
+
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
+    height: 55%;
+    margin: 1.5rem 0;
+    background-color: var(--primary-light);
+    border-radius: 10px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -643,6 +735,15 @@ main {
   }
 
   .portrait-lg {
-    width: 55%;
+    width: 45%;
+  }
+
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
+    height: 50%;
+    margin: 1.5rem 0;
+    background-color: var(--primary-light);
+    border-radius: 10px;
   }
 }

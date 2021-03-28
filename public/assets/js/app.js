@@ -49,6 +49,16 @@ const hand = document.querySelector('.hand-lg');
 const hSlideBack = document.querySelector('.hand-back-btn');
 const hSlideNext = document.querySelector('.hand-next-btn');
 
+const photoThumb = document.querySelector('.phtn');
+const photo = document.querySelector('.photo-lg');
+const phSlideBack = document.querySelector('.photo-back-btn');
+const phSlideNext = document.querySelector('.photo-next-btn');
+
+const presThumb = document.querySelector('.prtn');
+const pres = document.querySelector('.pres-lg');
+const prSlideBack = document.querySelector('.pres-back-btn');
+const prSlideNext = document.querySelector('.pres-next-btn');
+
 let currentItem = 0;
 
 const portraits = [
@@ -162,6 +172,20 @@ const photos = [
   },
   {
     img: './images/photo-design/12.jpeg',
+  },
+];
+const presPages = [
+  {
+    img: './images/presentation-design/00.jpg',
+  },
+  {
+    img: './images/presentation-design/01.jpg',
+  },
+  {
+    img: './images/presentation-design/02.jpg',
+  },
+  {
+    img: './images/presentation-design/03.jpg',
   },
 ];
 
@@ -365,6 +389,14 @@ appCard.forEach((app) => {
       handThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/vector-art/thumbs-up.png)`;
       handThumb.style.borderRadius = '0';
     }
+    if (e.target === photoThumb) {
+      photoThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/photo-design/00.jpeg)`;
+      photoThumb.style.borderRadius = '0';
+    }
+    if (e.target === presThumb) {
+      presThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/presentation-design/00.jpg)`;
+      presThumb.style.borderRadius = '0';
+    }
 
     app.addEventListener('mouseleave', () => {
       app.style.transform = '';
@@ -404,6 +436,14 @@ appCard.forEach((app) => {
       if (e.target === handThumb) {
         handThumb.style.backgroundImage = '';
         handThumb.style.borderRadius = '50%';
+      }
+      if (e.target === photoThumb) {
+        photoThumb.style.backgroundImage = '';
+        photoThumb.style.borderRadius = '50%';
+      }
+      if (e.target === presThumb) {
+        presThumb.style.backgroundImage = '';
+        presThumb.style.borderRadius = '50%';
       }
     });
   });
@@ -485,6 +525,84 @@ hSlideNext.addEventListener('click', () => {
     currentItem = 0;
   }
   showNextItem(hands, currentItem, hand);
+});
+
+// photo slider
+photoThumb.addEventListener('click', () => {
+  const slider = document.querySelector('.photos-card');
+  document.querySelector('.photos').classList.add('hide');
+  slider.classList.remove('hide');
+
+  if (!slider.classList.contains('slide-side-out')) {
+    slider.classList.add('slide-side');
+  } else {
+    slider.classList.remove('slide-side-out');
+    slider.classList.add('slide-side');
+  }
+});
+
+document.querySelector('.photo-close').addEventListener('click', () => {
+  const slider = document.querySelector('.photos-card');
+  slider.classList.add('slide-side-out');
+  slider.classList.add('hide');
+  document.querySelector('.photos').classList.remove('hide');
+  showNextItem(photos, currentItem, photo);
+});
+
+phSlideBack.addEventListener('click', () => {
+  console.log('click');
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = photos.length - 1;
+  }
+  showNextItem(photos, currentItem, photo);
+});
+
+phSlideNext.addEventListener('click', () => {
+  currentItem++;
+  if (currentItem > photos.length - 1) {
+    currentItem = 0;
+  }
+  showNextItem(photos, currentItem, photo);
+});
+
+// photo slider
+presThumb.addEventListener('click', () => {
+  const slider = document.querySelector('.pres-card');
+  document.querySelector('.pres').classList.add('hide');
+  slider.classList.remove('hide');
+
+  if (!slider.classList.contains('slide-side-out')) {
+    slider.classList.add('slide-side');
+  } else {
+    slider.classList.remove('slide-side-out');
+    slider.classList.add('slide-side');
+  }
+});
+
+document.querySelector('.pres-close').addEventListener('click', () => {
+  const slider = document.querySelector('.pres-card');
+  slider.classList.add('slide-side-out');
+  slider.classList.add('hide');
+  document.querySelector('.pres').classList.remove('hide');
+  showNextItem(presPages, currentItem, pres);
+});
+
+prSlideBack.addEventListener('click', () => {
+  console.log('click');
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = presPages.length - 1;
+  }
+  showNextItem(presPages, currentItem, pres);
+});
+
+prSlideNext.addEventListener('click', () => {
+  currentItem++;
+  if (currentItem > presPages.length - 1) {
+    currentItem = 0;
+  }
+  showNextItem(presPages, currentItem, pres);
 });
 
 // functions
