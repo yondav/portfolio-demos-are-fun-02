@@ -456,6 +456,7 @@ main {
   cursor: pointer;
 }
 
+
 .thumbnail span {
   position: absolute;
   text-align: center;
@@ -467,7 +468,7 @@ main {
 
 .thumbnail .desc-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   margin: auto;
@@ -478,12 +479,32 @@ main {
   transition: all 2s ease;
 }
 
+.thumbnail .lang{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  /* color: var(--orange); */
+}
+
+.js {
+  color: var(--yellow);
+}
+
+.css {
+  color: var(--alt-blue)
+}
+
+.html {
+  color: var(--orange);
+}
+
 .thumbnail h1 {
-  width: 12rem;
+  margin: 0;
   padding: 0.3rem;
   text-align: center;
   font-size: 5em;
-  /* background-color: var(--bg-dark); */
   border-radius: 5px;
 }
 
