@@ -6,7 +6,7 @@ For this assignment, I decided to challenge myself and try a few things I had ne
 
 ## Deployed Webpage
 
-http://www.yondav.us/
+https://www.yondav.us/
 
 ### Responsive Layout
 
