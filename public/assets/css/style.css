@@ -239,10 +239,11 @@ footer .footer-logo .footer-dav {
 .pop-up .contact-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 95vw;
   height: 100vh;
+  padding: 1rem 0;
 }
 
 .pop-up .bio-card {
@@ -254,7 +255,7 @@ footer .footer-logo .footer-dav {
 }
 
 .pop-up .headshot {
-  width: 50%;
+  width: 65%;
   margin-top: 4rem;
   background-color: var(--green);
   border: 0.3rem solid var(--primary-light);
@@ -279,7 +280,6 @@ footer .footer-logo .footer-dav {
   justify-content: space-around;
   align-items: center;
   width: 80%;
-  margin-bottom: 2rem;
 }
 
 .pop-up .bio-card a {
@@ -617,7 +617,7 @@ footer a .icon {
   justify-content: space-around;
   align-items: center;
   /* flex-direction: column; */
-  width: 50vw;
+  width: 70vw;
   font-size: 1em;
 }
 
@@ -673,10 +673,16 @@ footer a .icon {
   .apps,
   .art {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 60rem;
+    /* width: 60rem; */
+  }
+
+  .thumbnail {
+    width: 20rem;
+    height: 20rem;
+    background-size: 20rem;
   }
 
   .portrait-lg,
@@ -718,6 +724,17 @@ footer a .icon {
     font-size: 6em;
   }
 
+  .apps,
+  .art {
+    width: 60rem;
+  }
+
+  .thumbnail {
+    width: 22rem;
+    height: 22rem;
+    background-size: 22rem;
+  }
+
   .portrait-lg,
   .hand-lg,
   .photo-lg,
@@ -737,4 +754,42 @@ footer a .icon {
   .pres-lg {
     width: 45%;
   }
+}
+
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+
+  .pop-up .bio-card,
+  .pop-up .contact-card {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pop-up .headshot {
+    width: 65%;
+    margin-top: 0;
+  }
+
+  .portrait-lg,
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-height:900px) {
+  .pop-up .bio-card,
+  .pop-up .contact-card {
+    width: 80vw;
+    height: 80vh;
+  }
+
+  .portrait-lg,
+  .hand-lg,
+  .photo-lg,
+  .pres-lg {
+    width: 85%;
 }
