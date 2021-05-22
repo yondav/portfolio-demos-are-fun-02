@@ -34,10 +34,12 @@ const appCard = document.querySelectorAll('.app-card');
 const appTitle = document.querySelectorAll('.app-title');
 const descCard = document.querySelectorAll('.desc-card');
 const otherSide = document.querySelector('.other-side');
+const yupThumb = document.querySelector('.ytn');
 const otherThumb = document.querySelector('.ostn');
 const chopsThumb = document.querySelector('.cctn');
 const weaThumb = document.querySelector('.watn');
-const workThumb = document.querySelector('.wdtn');
+const techThumb = document.querySelector('.tbtn');
+const empThumb = document.querySelector('.ettn');
 
 const portThumb = document.querySelector('.ptn');
 const portrait = document.querySelector('.portrait-lg');
@@ -373,6 +375,11 @@ appCard.forEach((app) => {
       title.classList.add('fade-in');
     });
 
+    // yup thumbnail
+    if (e.target === yupThumb) {
+      yupThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/yup.gif)`;
+      yupThumb.style.borderRadius = '0';
+    }
     if (e.target === otherThumb) {
       otherThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/other-side.gif)`;
       otherThumb.style.borderRadius = '0';
@@ -385,9 +392,13 @@ appCard.forEach((app) => {
       weaThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/weather.gif)`;
       weaThumb.style.borderRadius = '0';
     }
-    if (e.target === workThumb) {
-      workThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/work-day.gif)`;
-      workThumb.style.borderRadius = '0';
+    if (e.target === techThumb) {
+      techThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/tech-blog.gif)`;
+      techThumb.style.borderRadius = '0';
+    }
+    if (e.target === empThumb) {
+      empThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/employee-tracker.gif)`;
+      empThumb.style.borderRadius = '0';
     }
     if (e.target === portThumb) {
       portThumb.style.backgroundImage = `linear-gradient(rgba(100, 100, 100, 0.8), rgba(20, 20, 20, 0.8)), url(./images/portraits/00.png)`;
@@ -421,6 +432,10 @@ appCard.forEach((app) => {
         title.classList.remove('fade-in');
       });
 
+      if (e.target === yupThumb) {
+        yupThumb.style.backgroundImage = '';
+        yupThumb.style.borderRadius = '50%';
+      }
       if (e.target === otherThumb) {
         otherThumb.style.backgroundImage = '';
         otherThumb.style.borderRadius = '50%';
@@ -433,9 +448,13 @@ appCard.forEach((app) => {
         weaThumb.style.backgroundImage = '';
         weaThumb.style.borderRadius = '50%';
       }
-      if (e.target === workThumb) {
-        workThumb.style.backgroundImage = '';
-        workThumb.style.borderRadius = '50%';
+      if (e.target === techThumb) {
+        techThumb.style.backgroundImage = '';
+        techThumb.style.borderRadius = '50%';
+      }
+      if (e.target === empThumb) {
+        empThumb.style.backgroundImage = '';
+        empThumb.style.borderRadius = '50%';
       }
       if (e.target === portThumb) {
         portThumb.style.backgroundImage = '';

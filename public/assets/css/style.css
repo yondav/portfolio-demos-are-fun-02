@@ -458,7 +458,8 @@ main {
 
 
 .thumbnail span {
-  position: absolute;
+  position: relative;
+  top: 11rem;
   text-align: center;
   font-family: var(--ff-secondary);
   font-size: 2.5em;
@@ -479,11 +480,25 @@ main {
   transition: all 2s ease;
 }
 
+.thumbnail .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: center; */
+  height: 100%;
+}
+
+.thumbnail .desc .repo {
+  color: var(--orange);
+  /* background-color: var(--primary-dark); */
+}
+
 .thumbnail .lang{
   display: flex;
   /* flex-direction: column; */
   justify-content: space-evenly;
   align-items: center;
+  width: 6rem;
   height: 100%;
   /* color: var(--orange); */
 }
@@ -500,6 +515,10 @@ main {
   color: var(--orange);
 }
 
+.node {
+  color: var(--green);
+}
+
 .thumbnail h1 {
   margin: 0;
   padding: 0.3rem;
@@ -512,6 +531,9 @@ main {
   font-size: 1.1em;
 }
 
+.yup .thumbnail {
+  background-image: url(../../images/circle-logo.svg);
+}
 .other-side .thumbnail {
   background-image: url(../../images/earth-globe-img.png);
 }
@@ -524,14 +546,13 @@ main {
   background-image: url(../../images/weather.svg);
 }
 
-.work-day .thumbnail {
-  background-image: url(../../images/work-day.svg);
+.tech-blog .thumbnail {
+  background-image: url(../../images/tech-blog.svg);
 }
 
-/* design */
-/* #design .thumbnail {
-  margin: 0 2.5rem;
-} */
+.employee-tracker .thumbnail {
+  background-image: url(../../images/employee-tracker.svg);
+}
 
 .portraits .thumbnail {
   background-image: url(../../images/portraits/00.png);
@@ -661,6 +682,10 @@ footer a .icon {
 .footer-social-icons img {
   width: 2.5rem;
   margin-right: 0;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .hide {

@@ -3,6 +3,7 @@ const express = require('express');
 // const getMaxListeners = require('node:process');
 const app = express();
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -21,7 +22,7 @@ app.post('/', (req, res) => {
     service: 'gmail',
     auth: {
       user: 'yondavportfolio@gmail.com',
-      pass: '9664Port*!',
+      pass: process.env.AUTH,
     },
   });
   const mailOptions = {
