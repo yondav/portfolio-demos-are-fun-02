@@ -453,13 +453,12 @@ main {
   background-size: 22rem;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.35) 0.95px 4.95px 7.6px;
-  cursor: pointer;
 }
 
 
 .thumbnail span {
   position: relative;
-  top: 11rem;
+  top: 10.5rem;
   text-align: center;
   font-family: var(--ff-secondary);
   font-size: 2.5em;
@@ -488,9 +487,20 @@ main {
   height: 100%;
 }
 
+.thumbnail .desc .thumb-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: .4rem;
+}
+
 .thumbnail .desc .repo {
   color: var(--orange);
-  /* background-color: var(--primary-dark); */
+}
+
+.thumbnail .desc .deployed {
+  margin-top: .4rem;
+  color: var(--blue)
 }
 
 .thumbnail .lang{
